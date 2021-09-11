@@ -1,0 +1,17 @@
+eq:slopeintercept
+eq:slope
+eq:yintercept
+eq:deltay
+eq:deltax
+bca-notes
+semester-one-math
+semester-three-data-structure
+polynomials
+algorithm-to-add-two-polynomials.
+algorithm-to-add-two-polynomials.-1
+semester-three-graphics.
+module-2
+drawing-algorithms
+output-primitives
+graphics-functions.-kinda-idk
+line-drawing-algorithms.

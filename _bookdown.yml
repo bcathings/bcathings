@@ -1,0 +1,2 @@
+rmd_files: ["index.Rmd", "sem_1/maths.Rmd", "sem_3/ds.Rmd","sem_3/graphics.Rmd"]
+output_dir: "docs"

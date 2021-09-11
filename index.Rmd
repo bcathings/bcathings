@@ -1,0 +1,27 @@
+---
+title: "BCA Notes if you are desperate."
+author: "written by @bcathings"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+  #bookdown::pdf_book: default
+---
+
+# BCA NOTES 
+
+Just notes for BCA following the **MGU syllabus.**
+
+Now, what i wrote up is completely on you and i dont care if they are wrong i
+am not responsible for anything said in this book. 
+
+open a pull request on github if you want it corrected. 
+
+now, there is still stuff missing and stuff they didnt teach me for some reason,
+if anything, Im trying to finish this. maybe, but feel free to open up issues on github.
+
+they didnt give you notes for math? some equations? they probably dont know $\LaTeX$
+
+here ya go, the notes. stop depending on people who dont care about you. even me.
+
+

@@ -1,0 +1,22 @@
+# SEMESTER THREE : Data Structure
+
+## Polynomials
+
+### Algorithm to add two Polynomials.
+
+1. create a sum array `sum[]` for size to maximum of `m` and `n`
+2. copy `A[]` to `sum[]`.
+3. Traverse array `B[]` and do following for every element `B[i]`
+   - `sum[i] = sum[i] + B[i]`
+4. Return `sum[]`.
+
+### Algorithm to add two Polynomials.
+
+**multiply(A[0..m-1],B[0..n-1])**
+
+1. create a product array `prod[]` of size `m+n-1`
+2. initalize all entries in `prod[]` as 0.
+3. Traverse array `A[]` and do follow for every element `A[i]`
+   1. Traverse array `B[]` and do following for every element `B[j]`
+      - `prod[i+j] = prod[i+j] + A[i] * B[j]`
+4. Return `prod[]`.

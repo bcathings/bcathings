@@ -1,0 +1,86 @@
+# SEMESTER THREE : Graphics.
+## MODULE 2
+
+## Drawing algorithms
+
+- Line drawing algorithms
+    - DDA algorithm
+    - Breshnham''s Line Algorithm.
+- Circle drawing algorithm.
+    - Midpoint circle algorithm
+- Character generation
+
+## Output primitives
+Graphics programming packages provide functions to describe a scene in terms of these
+basic geometric structures Output **primitives.**
+To create complex pictures we use sets of output primitives.
+Basic building blocks of a picture are called Output primitives.
+
+- Point
+- Line
+- Circle
+
+## graphics functions. ( kinda idk )
+To load a specified color into the frame buffer, the function used is 
+`setPixel(x,y)`
+
+To retrive a specified color from the frame buffer, the function used is 
+`getPixel(x,y)`
+
+## Line Drawing algorithms.
+The slope intercept equation for a straight line is 
+\begin{equation}
+ y = mx + b 
+(\#eq:slopeintercept)
+\end{equation}
+
+with $m$ representing the slope of the lien and b as the $y$ intercept.
+give that the two endpoints of a line segment are specified, $(x_{1}, y_{1} ) , (x_{2}, y_{2} )$ posiitions 
+
+
+the values for the slope $m$ and $y$ intercept b can be determined with the following
+calculations.
+
+\begin{equation}
+m = \frac{y_{2} - y_{1}}{x_{2}-x_{1}} 
+(\#eq:slope)
+\end{equation}
+
+\begin{equation}
+b = y_{1} - m . x_{1}
+(\#eq:yintercept)
+\end{equation}
+
+algorithms for displaying straight lines are based on line equations \@ref(eq:slopeintercept) and the calculations 
+given in \@ref(eq:slope) and \@ref(eq:yintercept)
+
+for any given $x$ interval
+$\Delta x$ along a line the corresponding $y$ interval $\Delta y$ can be calculated from
+equation \@ref(eq:slope) as 
+
+\begin{equation}
+\Delta y = m \Delta x
+(\#eq:deltay)
+\end{equation}
+
+
+Similarly, $x$ interval $\Delta x$ can be obtained as 
+
+\begin{equation}
+\Delta x = \frac{\Delta y}{x}
+(\#eq:deltax)
+\end{equation}
+
+
+the above equations form the basis determining defelection volatages in analog devices
+4 lines with slope magnitudes $| m | < 1, \Delta x$ can be set proportional
+to small horizontal defelection voltage and the corresponding vertical defelection voltage is then 
+set proportional to $\Delta y$ as calculated from equation no \@ref(eq:deltay) for lines with slope 
+magnitude $|m|>1,\Delta y$ can be proportional to a small vertical defelection voltage with corresponding
+horizontal defelection voltage set proportional to $\Delta x$ as calculated from equation no \@ref(eq:deltax)
+for lines $m=1,\Delta x=\Delta y$ the horizontal and vertical defelection volatages are equal.
+
+In each case a smooth line with slop $m$ is generatated between the specified points.
+
+
+
