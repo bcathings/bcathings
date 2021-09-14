@@ -5,7 +5,7 @@
 
 - Line drawing algorithms
     - DDA algorithm
-    - Breshnham''s Line Algorithm.
+    - Bresenham''s Line Algorithm.
 - Circle drawing algorithm.
     - Midpoint circle algorithm
 - Character generation
@@ -82,5 +82,119 @@ for lines $m=1,\Delta x=\Delta y$ the horizontal and vertical defelection volata
 
 In each case a smooth line with slop $m$ is generatated between the specified points.
 
+On raster scan systems, lines are plotted with pixeels and steps in the horizontal and vertical directions
+are constrained by pixel seperation.
+
+that is sample a line at discrete posiitions and determine the nearest pixel to the line at each sampled
+position.
+
+### DDA Algorithm
+The **Digital Diffrential Analyzer** Algorithm is a scan continuation line-algorithm based on calculating either
+$\Delta x$ or $\Delta y$ using equation no \@ref(eq:deltay) and \@ref(eq:deltax) . The line can be sampled
+at unit intervals. in one coordinate and determine corresponding integer values nearest the line path for the
+other coordinate.
+
+**Case One:**
+
+Consider a line from left to right
+
+consider a line with a positive slope.
+
+if the slope $m\leq 1$ sample at unit $x$ intervals $(\Delta x = 1)$ and compute
+each sucessive $y$ values as 
+
+\begin{equation}
+y_{k+1} = y_{k}+m
+(\#eq:caseoneeqone)
+\end{equation}
+
+$_{k}$ takes integer values staring from 1 for the first point, it increases by 1 until the final
+point is reached. since $m$ can be any real number between 0 and 1. the calculated y value must be
+rounded to the nearest integer. and in that can if the value of slope $m\geq 1$, reverse the roles 
+$x$ and $y$. that is sample at unit $y$ intervals and calculate each succeding $x$ values as..
+
+\begin{equation}
+x_{k+1}= x_{k}+\frac{1}{m}
+(\#eq:caseoneeqtwo)
+\end{equation}
+
+**Case Two:**
+
+consider lines from right to left.
+
+postive slope
+
+1. if $m\leq 1$ , $\Delta x = -1$ and
+
+\begin{equation}
+y_{k+1} = y_{m}-m
+(\#eq:casetwoeqone)
+\end{equation}
+
+2. if $m>1$  , $\Delta y = -1$
+
+\begin{equation}
+x_{k+1} = x_{k} - \frac{1}{m}
+(\#eq:casetwoeqtwo)
+\end{equation}
+
+**Algorithm**
+
+```c
+void lineDDA(int xa,int ya,int xb,int yb){
+    int dx = xb - xa, dy = yb - ya, steps, k;
+    float xIncrment, yIncrment, x = xa, y = ya;
+    if(abs(dx) > abs(dy)) {
+        steps = abs(dx);
+    } else {
+        steps = abs(dy);
+    }
+    xIncrment = dx / (float) steps;
+    yIncrment = dy / (float) steps;
+    setPixel(round(x),round(y));
+    for (k=0;k<steps;k++){
+        x = x + xIncrment;
+        y = y + yIncrment;
+        setPixel(round(x),round(y));
+    }
+}
+```
+
+This algorithm is summarised in the following procedure,which accepts two endpoint pixel
+positions as input. horizontal and vertical diffrence between the end point posiitions are
+asigned to parameters `dx` and `dy`. The diffrence with the greater magnitude determines the
+value of parameter `steps`.
+
+Starting with pixel positions `xa`,`xb` determine the offset needed at each step to 
+generatated the next pixel posiitions along the line path, loop through this procedure `steps`
+times.
+
+If the magnitude of `dx` is greater than the magnitude of of `dy` and `xa` < `xb` , the
+values of increments in the `x` and `y` directions are 1 and m respectively.
+
+
+if the greater change is in the `x` direction, but `xa` > `xb` , then the decrements -1
+and -m are used to generate each point on the line.
+otherwise use a unit increment ( or decrement) in the y direction and an x increment 
+( or decrement) of $\frac{1}{m}$
+
+**Advantages**
+
+1. DDA algoritm is a faster method for calculating pixell positions than the direct 
+    use of equation number 1.
+2. It eliminates the mulitplication in equation no 1 so that appropriate increments
+   are applied in the x or y direction to step to pixel positions along the line path.
+
+
+**Disadvantages**
+
+1. The accumulation of the round of error in succesive editions of the floating point
+   increment, can cause the caluclated pixel positions to drift away from the true line
+   path for long line segments.
+
+2. Rounding operations and floating point arithemetic caluclations are still time 
+   consuming.
+
+### Bresenham's line algorithm.
 
 

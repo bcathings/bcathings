@@ -1,7 +1,16 @@
-# SEMESTER ONE : math
+# SEMESTER ONE : Maths
 
-well these are the math notes. for sem one.
+## MODULE 3 : Number Theory and Cryptosystem
 
-here we go.
+### The integers and division.
 
-oh. there isn't any. yet.
+If $a$ and $b$ are integers with $a\neq0$, we say that $a$ divides $b$
+if there is an integer $c$ such that $b=ac$. 
+
+When $a$ divides $b$, we say that $a$ is a factor of $b$ and $b$ is a multiple of $a$.
+
+**theorem**
+
+1. if $a/b$ and $a/c$, then $a/(b+c)$
+2. if $a/b$ and $a/bc$ for all integer $c$
+3. if $a/b$ and $b/c$, then $a/c$
